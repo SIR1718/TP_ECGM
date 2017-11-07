@@ -1,0 +1,74 @@
+
+
+@media screen and (min-width : 800px ) and  (max-width : 1000px ) {
+	body {background-color: lime}
+}
+
+@media screen and (min-width : 400px ) and (max-width : 800px ) {
+	body {background-color: lightblue}
+	a {display:none;}
+}
+
+@media print {
+	p::before {content : "print";}
+}
+
+/* @ media screen {
+	body {background-color: pink}
+}
+*/
+
+
+
+p {color:red;}
+/* * {color: green}; */
+body {color:blue}
+.noticia {color:pink;}
+#despromovido {color: gray;}
+
+[title] {background-color: lime;}
+
+
+[title = google] {border-style:solid;}
+
+[href *= com] {text-decoration: none;}
+
+
+p:hover {background-color: black;}
+
+p:first-child{font-family: monospace;}
+
+
+div.zebra p:nth-child(3) {
+	background-color: orange;
+	color: red;
+}
+
+div.zebra p:nth-child(2n) {
+	background-color: black;
+	color: lightgray;
+}
+
+
+
+div.zebra p:nth-child(2n+1) {
+	background-color: lightgray;
+	color: black;
+}
+
+
+div.zebra p:nth-child(5) {
+	background-color: lightgray;
+	color: red;
+}
+
+div.item a[href $= png]::before {
+	content : "[IMG]";
+}
+
+div.item a[href $= pdf]::before {
+	content : "[PDF]";
+}
+
+
+

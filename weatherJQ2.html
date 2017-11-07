@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery/jquery-3.2.1.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#getw").click(function(){
+				// obter o estdo do tempo
+				console.log("getw");
+				//$("#content").append($("<p/>").html("getw"));
+				$.getJSON(
+					"http://api.openweathermap.org/data/2.5/weather", 
+					{
+						"units" : "metric",
+						"q" : $("#inplace").val(),
+						"appid" : "fa454439b36b644d49e751a9b0afbcfc"
+					},
+					function (wdata) {
+						
+						$("#content").
+						append($("<div/>")
+							.append($("<h1/>").html(wdata.name))
+							.append($("<h2/>").html(wdata.main.temp))
+							);
+					}
+					);
+
+				/*$.ajax({
+					url: "http://api.openweathermap.org/data/2.5/weather",
+					method : "GET",
+					dataType : "json",
+					data : {
+						"units" : "metric",
+						"q" : $("#inplace").val(),
+						"appid" : "fa454439b36b644d49e751a9b0afbcfc"
+					},
+					success : function (wdata) {
+						
+						$("#content").
+						append($("<div/>")
+							.append($("<h1/>").html(wdata.name))
+							.append($("<h2/>").html(wdata.main.temp))
+							);
+					}
+				}) */
+			});
+
+			$("#cleanw").click(function () {
+				$("#content").html("");
+			})
+		})
+	</script>
+</head>
+<body>
+<div id="control">
+	<input type="text" id="inplace"/>
+	<button id="getw">Get Weather</button>
+	<button id="cleanw">Clean</button>
+</div>
+<div id=content></div>
+</body>
+</html>

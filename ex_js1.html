@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+
+
+</head>
+<body>
+
+	<div>
+	<button id="bstart"> coloca botao a dizer ola </button>
+	<button id="bend">  cala o botão  </button>
+	<button id="botao"> eu sou o botão </button>
+	<p>ola</p>
+</div>
+<p>ola</p>
+		<script>
+
+		bstart = document.getElementById("bstart");
+		bend = document.getElementById("bend");
+		botao = document.getElementById("botao");
+
+		bstart.addEventListener("click", function () {
+			botao.addEventListener("click", dizola);
+		} );
+
+		bend.addEventListener("click", function () {
+			botao.removeEventListener("click", dizola);
+		} );
+
+
+		function dizola() {
+			alert("ola");
+		}
+		function mostraelem() {
+			elem = document.getElementById("p01");
+			console.log(elem);
+		}
+
+		//document.body.onload = mostraelem;
+		//window.addEventListener("load",mostraelem);
+
+		//window.addEventListener("load",function () {
+		//	console.log("bla bla");
+		//});
+
+
+	</script>
+
+
+</body>
+</html>

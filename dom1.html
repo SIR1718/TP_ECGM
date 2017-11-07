@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+</head>
+<body>
+	<div id="control">
+		<button id="bbb">BBB</button>
+		<button onclick = "mostrapes();">mostra</button>
+		<button onclick = "criapes();">cria</button>
+		<button onclick ="antesdepois();">linhas</button>
+		<button onclick = "clone()">Clone </button>
+		<button onclick = "classes()">Classes </button>
+
+	</div>
+	<div id="content" class="ecgm pedro" style="border-style: solid;">
+		olá
+		<p>olé</p>
+		<p>olí</p>
+	</div>
+	<div>
+		<p> oló </p>
+	</div>
+</body>
+<script type="text/javascript">
+	
+	pes1 = document.getElementsByTagName("p");
+	pes2 = document.querySelectorAll("p");
+
+	div = document.querySelector("#content");
+
+	function mostrapes() {
+		console.log("pes1:",pes1);
+		console.log("pes2:",pes2);
+	}
+
+	function criapes () {
+		np = document.createElement("p");
+		np.innerHTML = "oollaa";
+		document.body.appendChild(np);
+	}
+
+	function antesdepois() {
+		div.insertAdjacentHTML('afterbegin',"<hr/>");
+		div.insertAdjacentHTML('beforeend',"<hr/>");
+	}
+
+	function clone() {
+		ndiv = div.cloneNode(true);
+		document.body.appendChild(ndiv);
+	}
+
+	function classes () {
+		console.log(div.className)
+		console.log(div.getAttribute("class"))
+		console.log(window.getComputedStyle(div));
+	}
+
+	function diz(e) {
+		console.log(this);
+		console.log("div currentTarget",e.currentTarget);
+		console.log("div target",e.target);
+	}
+
+	function fala(e) {
+		console.log(this);
+		console.log("bbb currentTarget",e.currentTarget);
+		console.log("bbb target",e.target);
+	}
+	
+	divcontrol = document.getElementById("control");
+	divcontrol.addEventListener("click",diz)
+
+
+	bbb = document.getElementById("bbb");
+	bbb.addEventListener("click",fala);
+
+	addEventListener("keydown",color1);
+	addEventListener("keyup",color2);
+
+	function color1(e) {
+		document.body.style.backgroundColor = "black";
+		console.log(e.target);
+		console.log(e.keyCode);
+		//console.log(e.charCode);
+	}
+
+	function color2() {
+		document.body.style.backgroundColor = "white";
+	}
+
+</script>
+</html>
